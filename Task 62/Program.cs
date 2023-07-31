@@ -49,9 +49,9 @@ int[,] Create2DArray(int rows, int columns)
         if (Left <= Right)
             {
                 for (int i = Bottom; i >= Top; i--)
-            {
+                {
                 array[i, Left] = number++;
-            }
+                }
             Left++;
             }
     }      
