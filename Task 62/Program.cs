@@ -23,31 +23,31 @@ int[,] Create2DArray(int rows, int columns)
 {
     int[,] array = new int[rows, columns];
     int number = 1;
-    int rowStart = 0, rowFinish = rows - 1;
-    int colStart = 0, colFinish = columns - 1;
+    int Top = 0, Bottom = rows - 1;
+    int Left = 0, Right = columns - 1;
 
     while (number <= rows * columns)
     {
-        for (int i = colStart; i <= colFinish; i++)
+        for (int i = Left; i <= Right; i++)
         {
-            array[rowStart, i] = number++;
+            array[Top, i] = number++;
         }
-        rowStart++;
-        for (int i = rowStart; i <= rowFinish; i++)
+        Top++;
+        for (int i = Top; i <= Bottom; i++)
         {
-            array[i, colFinish] = number++;
+            array[i, Right] = number++;
         }
-        colFinish--;       
-        for (int i = colFinish; i >= colStart; i--)
+        Right--;       
+        for (int i = Right; i >= Left; i--)
         {
-            array[rowFinish, i] = number++;
+            array[Bottom, i] = number++;
         }
-        rowFinish--;
-        for (int i = rowFinish; i >= rowStart; i--)
+        Bottom--;
+        for (int i = Bottom; i >= Top; i--)
         {
-            array[i, colStart] = number++;
+            array[i, Left] = number++;
         }
-        colStart++;
+        Left++;
     }      
     return array;
 }
