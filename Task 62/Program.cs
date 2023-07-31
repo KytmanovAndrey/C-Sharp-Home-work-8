@@ -37,17 +37,23 @@ int[,] Create2DArray(int rows, int columns)
         {
             array[i, Right] = number++;
         }
-        Right--;       
-        for (int i = Right; i >= Left; i--)
-        {
-            array[Bottom, i] = number++;
-        }
+        Right--;
+        if  (Bottom >= Top)
+            {     
+                for (int i = Right; i >= Left; i--)
+                {
+                    array[Bottom, i] = number++;
+                }
+            }
         Bottom--;
-        for (int i = Bottom; i >= Top; i--)
-        {
-            array[i, Left] = number++;
-        }
-        Left++;
+        if (Left <= Right)
+            {
+                for (int i = Bottom; i >= Top; i--)
+            {
+                array[i, Left] = number++;
+            }
+            Left++;
+            }
     }      
     return array;
 }
